@@ -1,4 +1,4 @@
-package edu.miu.membership.config.logging;
+package edu.miu.membership.config.logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;

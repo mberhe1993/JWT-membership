@@ -1,4 +1,4 @@
-package edu.miu.membership.config.logging;
+package edu.miu.membership.config.auth;
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
 import org.keycloak.adapters.springsecurity.KeycloakConfiguration;
 import org.keycloak.adapters.springsecurity.authentication.KeycloakAuthenticationProvider;
@@ -46,5 +46,7 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
                 .antMatchers("/api/miu/**").hasRole("admin")
                 .anyRequest()
                 .authenticated();
+        http.csrf().disable();
+
     }
 }

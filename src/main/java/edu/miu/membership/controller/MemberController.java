@@ -8,6 +8,7 @@ import net.sourceforge.barbecue.output.OutputException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.security.RolesAllowed;
 import java.io.IOException;
@@ -24,9 +25,21 @@ public class MemberController {
     private MemberServiceImpl memberServiceImpl;
 
     @Autowired
+    private RestTemplate restTemplate;
+
+    @Autowired
     MemberController(MemberServiceImpl memberServiceImpl) {
         this.memberServiceImpl = memberServiceImpl;
     }
+
+
+    @GetMapping()
+    public String test(){
+        String url = "http://loalhost:8080/api/miu/members/test";
+        String string = restTemplate.getForObject(url, String.class);
+        return string;
+    }
+
 
     @GetMapping()
     //@RolesAllowed("admin")

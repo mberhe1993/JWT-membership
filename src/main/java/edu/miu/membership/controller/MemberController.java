@@ -35,7 +35,7 @@ public class MemberController {
 
     @GetMapping()
     public String test(){
-        String url = "http://loalhost:8080/api/miu/members/test";
+        String url = "http://loalhost:9191/api/miu/members/test";
         String string = restTemplate.getForObject(url, String.class);
         return string;
     }
